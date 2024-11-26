@@ -18,13 +18,13 @@ nav {
 }
 
 .new-tweet span {
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Bungee', sans-serif;
   font-size: 18px;
   margin-bottom: 5px;
 }
 
 .new-tweet i {
   font-size: 24px;
-  color: red;
+  color: inherit;
 }
 
