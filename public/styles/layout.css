@@ -19,6 +19,7 @@ body {
   color: #4056A1;
   font-size: 24px;
   font-family: 'Source Sans 3', sans-serif;
+  padding-top: 120px;
 }
 
 nav span {
@@ -26,6 +27,29 @@ nav span {
   font-size: 28px;
   font-weight: 400;
 }
+
+/*
+ * Header styling (added this section for centering the header content)
+ */
+ header {
+  display: flex;
+  background-color: #f3c923;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  width: 100%;
+}
+
+header img {
+  max-width: 200px;
+  height: auto;
+  border-radius: 50%;
+}
+
+header h2 {
+  font-size: 24px;
+  margin: 10px;
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
