@@ -2,8 +2,12 @@
 
 // Require fs to write to initial-tweets.json
 const fs = require("fs");
+const path = require("path");
+
+const tweetsFilePath = path.resolve(__dirname, "../data-files/initial-tweets.json");
+
 // Requiring a JSON file automatically parses it and returns the data.
-let tweetsJSON = require('../data-files/initial-tweets.json');
+let tweetsJSON = require(tweetsFilePath);
 
 // Write recent dates to initial-tweets.json
 // Specifically sync to not interfere with student functions
@@ -17,6 +21,7 @@ module.exports = () => {
     tweet.created_at = Date.now() - (oneDayMs * (tweetsJSON.length - index));
     return tweet;
   });
-  // Re-write the tweets with the new date values.
-  fs.writeFileSync('server/data-files/initial-tweets.json', JSON.stringify(tweetsJSON, null, 2), { encoding: "utf8" });
+
+  // Write the updated tweets back to the JSON file
+  fs.writeFileSync(tweetsFilePath, JSON.stringify(tweetsJSON, null, 2), { encoding: "utf8" });
 };
