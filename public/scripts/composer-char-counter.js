@@ -9,11 +9,11 @@ $(document).ready(function() {
     // Updating the counter text
     counter.text(remainingChars);
 
-    // Add/remove the 'invalid' class based on character count
+    // Add/remove the 'counter-red' class based on character count
     if (remainingChars < 0) {
-      counter.addClass("invalid");
+      counter.addClass("counter-red");
     } else {
-      counter.removeClass("invalid");
+      counter.removeClass("counter-red");
     }
   });
 });

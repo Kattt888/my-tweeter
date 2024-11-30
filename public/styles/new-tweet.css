@@ -55,3 +55,7 @@ section.new-tweet .counter {
   font-size: 0.9rem;
   margin-top: 10px;
 }
+
+.counter-red {
+  color:red;
+}
