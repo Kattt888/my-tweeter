@@ -34,10 +34,10 @@
       <span style="font-family: 'Bungee', sans-serif;">tweeter</span>
 
       <!-- Write a new tweet section -->
-      <div class="new-tweet">
-        <span>Write a new tweet</span>
-        <i class="fas fa-angle-double-down"></i> <!-- Font Awesome icon -->
-      </div>
+      <section class="new-tweet">
+        <h2>Write a new tweet</h2>
+        <i class="fas fa-angle-double-down"></i>
+      </section> 
     </nav>
 
     <header>
@@ -55,13 +55,13 @@
       <!-- New Tweet Form -->
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form action="/tweets" method="POST"> <!-- Set action and method attributes -->
+        <form action="/tweets" method="POST"> 
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text" maxlength="140"></textarea>
-          <div>
+          <footer>
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
+          </footer>
         </form>
       </section>
     </main>
