@@ -1,0 +1,97 @@
+/* Container for all tweets */
+.tweets-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.tweet {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.new-tweet footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+.counter {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.tweet:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.tweet header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.tweet header img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.tweet header .user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.tweet header .user-info .name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.tweet header .user-info .handle {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.tweet .tweet-text {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.tweet footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.tweet footer .icons {
+  display: flex;
+  gap: 10px;
+}
+
+.icons i {
+  color: #666;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.icons i:hover {
+  color: #ffcc00;
+}

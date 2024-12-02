@@ -1,9 +1,11 @@
+/* New Tweet Section Styling */
 section.new-tweet {
-  background-color: #f4f4f9;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 section.new-tweet h2 {
@@ -17,7 +19,7 @@ section.new-tweet textarea {
   height: 80px;
   padding: 10px;
   font-size: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 4px;
   resize: none;
 }
@@ -29,33 +31,30 @@ section.new-tweet textarea:focus {
 }
 
 section.new-tweet button {
-  background-color: #1da1f2;
+  background-color: #4056A1;
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 4px;
+  font-family: 'Bungee', sans-serif;
   font-size: 1rem;
   cursor: pointer;
   margin-top: 10px;
 }
 
 section.new-tweet button:hover {
-  background-color: #0d95e8;
-}
-
-section.new-tweet textarea:focus {
-  border-color: #1da1f2;
-  box-shadow: 0px 0px 5px rgba(29, 161, 242, 0.5);
-  outline: none;
+  background-color: #1da1f2;
 }
 
 section.new-tweet .counter {
-  float: right;
-  color: #555;
-  font-size: 0.9rem;
+  color: #333;
+  display: flex;
+  font-family: 'Bungee', sans-serif;
+  font-size: 1rem;
+  justify-content: flex-end;
   margin-top: 10px;
 }
 
 .counter-red {
-  color:red;
+  color: red;
 }

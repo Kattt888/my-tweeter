@@ -6,29 +6,40 @@ nav {
   height: 120px;
   background-color: #4056A1;
   color: #FFFFFF;
-  padding: 0 1.5em;
-  position: fixed;
+  padding: 0 2em;
+}
+
+.nav-container {
   width: 100%;
-  top: 0;
-  z-index: 1000;
-}
-
-/* Write a new tweet text and icon */
-.new-tweet {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
 }
 
-.new-tweet span {
+/* Styling for the "TWEETER" text */
+nav span {
+  font-family: 'Bungee', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* Write a new tweet text and icon section */
+.new-tweet-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer; 
+
+.new-tweet-toggle span {
   font-family: 'Bungee', sans-serif;
   font-size: 18px;
-  margin-bottom: 5px;
+  margin-right: 10px; 
+
+  .new-tweet-toggle i {
+  font-size: 24px;
+  color: #FFFFFF;
 }
 
-.new-tweet i {
-  font-size: 24px;
-  color: inherit;
-}
+/* Hover effect for new tweet toggle */
+.new-tweet-toggle:hover {
+  opacity: 0.9;
 

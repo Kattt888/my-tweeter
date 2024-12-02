@@ -12,13 +12,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 
-     <!-- Font Awesome -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" /> 
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" /> <!-- Ensure tweet.css is linked -->
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -28,20 +29,18 @@
 
     <!-- Composer Counter -->
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-
-
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span style="font-family: 'Bungee', sans-serif;">tweeter</span>
-
-      <!-- Write a new tweet section -->
-      <section class="new-tweet">
-        <h2>Write a new tweet</h2>
-        <i class="fas fa-angle-double-down"></i>
-      </section> 
+      <div class="nav-container">
+        <span style="font-family: 'Bungee', sans-serif;">tweeter</span>
+        <div class="new-tweet-toggle">
+          <span>Write a new tweet</span>
+          <i class="fas fa-angle-double-down"></i>
+        </div>
+      </div>
     </nav>
 
     <header>
@@ -58,15 +57,40 @@
     <main class="container">
       <!-- New Tweet Form -->
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form action="/tweets" method="POST"> 
+        <form action="/tweets" method="POST">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text" maxlength="140"></textarea>
           <footer>
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+            <div class="tweet-container">
+              <button type="submit" class="tweet-button">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
           </footer>
         </form>
+      </section>
+
+      <!-- Tweets Container-->
+      <section class="tweets-container">
+        <article class="tweet">
+          <header>
+            <div class="user-info">
+              <img src="avatar-placeholder.jpg" alt="User Avatar">
+              <span class="username">John Doe</span>
+              <span class="handle">@johndoe</span>
+            </div>
+          </header>
+          <p class="tweet-text">
+            This is a sample tweet!!!!
+          </p>
+          <footer>
+            <span class="timestamp">2 hours ago</span>
+            <div class="icons">
+              <i class="fa fa-flag"></i>
+              <i class="fa fa-retweet"></i>
+              <i class="fa fa-heart"></i>
+            </div>
+          </footer>
+        </article>
       </section>
     </main>
   </body>

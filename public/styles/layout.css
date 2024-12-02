@@ -14,50 +14,68 @@
  * Global layout stuff
  */
 
-body {
-  background-color: #f4f1ec;
-  color: #4056A1;
-  font-size: 24px;
+ body {
+  background-color: #fafafa;
+  color: #333;
   font-family: 'Source Sans 3', sans-serif;
-  padding-top: 120px;
+  margin: 0;
+  padding: 0;
 }
 
-main {
+/* Main container styles */
+main.container {
   width: 90%;
   margin: 0 auto;
-  background-color: inherit;
-  padding: 20px;
+  padding-top: 20px;
 }
 
-nav span {
-  font-family: 'Bungee', sans-serif;
-  font-size: 28px;
-  font-weight: 400;
-}
-
-/*
- * Header styling (added this section for centering the header content)
- */
- header {
-  display: flex;
-  background-color: #f3c923;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+/* Header styling */
+header {
+  background-color: #ebe9de;
   text-align: center;
-  width: 100%;
+  padding: 30px 0;
 }
 
 header img {
-  max-width: 200px;
+  max-width: 150px;
   height: auto;
   border-radius: 50%;
 }
 
 header h2 {
-  font-size: 24px;
-  margin: 10px;
+  font-size: 1.5rem;
+  color: #555;
+  margin: 10px 0 0 0;
+}
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+/* Nav Bar Styling */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  padding: 0 1.5em;
+}
+
+nav span {
+  font-family: 'Bungee', sans-serif;
+  font-size: 1.5rem;
+}
+
+nav .new-tweet {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+nav .new-tweet h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+nav .new-tweet i {
+  font-size: 24px;
+  color: inherit;
+}
