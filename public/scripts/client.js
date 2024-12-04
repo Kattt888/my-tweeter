@@ -23,20 +23,22 @@ const data = [
       "handle": "@rd"
     },
     "content": {
-      "text": "Je pense , donc je suis"
+      "text": "Je pense, donc je suis"
     },
     "created_at": 1461113959088
   }
 ];
- 
+
+// Function to render tweets by iterating through the tweets array
 const renderTweets = function(tweets) {
-  $('#tweets-container').empty(); // No duplicates
+  $('#tweets-container').empty(); // Prevent duplicates
   tweets.forEach(tweet => {
     const $tweetElement = createTweetElement(tweet);
-    $('#tweets-container').append($tweetElement);
+    $('#tweets-container').prepend($tweetElement); // Prepend for reverse chronological order
   });
 };
 
+// Function to create a new tweet element from the tweet object
 const createTweetElement = function(tweet) {
   const $tweet = $(`
     <article class="tweet">
@@ -61,6 +63,53 @@ const createTweetElement = function(tweet) {
   return $tweet;
 };
 
-// Render the tweets
+// Render the initial set of tweets (testing)
 renderTweets(data);
 
+$(document).ready(function() {
+  // Event listener for tweet form submission
+  $('form').on('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Serialize form data
+    const formData = $(this).serialize();
+
+    // Send the AJAX POST request
+    $.ajax({
+      type: 'POST',
+      url: '/tweets',
+      data: formData,
+      success: function() {
+        console.log("Tweet submitted successfully!");
+
+        // After submitting the form, clear the textarea and reset the counter
+        $('#tweet-text').val('');
+        $('.counter').text('140');
+
+        // Load tweets again to display the new tweet
+        loadTweets();
+      },
+      error: function(error) {
+        console.error("Error submitting tweet:", error);
+      }
+    });
+  });
+
+  // Function to load tweets from the server using AJAX GET request
+  const loadTweets = function() {
+    $.ajax({
+      type: 'GET',
+      url: '/tweets',
+      success: function(tweets) {
+        // Render the tweets after fetching them
+        renderTweets(tweets);
+      },
+      error: function(error) {
+        console.error("Error fetching tweets:", error);
+      }
+    });
+  };
+
+  // Load tweets when the page is loaded
+  loadTweets();
+});
