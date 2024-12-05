@@ -6,6 +6,7 @@
 
 $(document).ready(function() {
   
+  // Function to render tweets
   const renderTweets = function(tweets) {
     $('#tweets-container').empty();
 
@@ -16,6 +17,7 @@ $(document).ready(function() {
     });
   };
 
+  // Function to create a tweet element
   const createTweetElement = function(tweet) {
     const $tweet = $(`
       <article class="tweet">
@@ -40,6 +42,7 @@ $(document).ready(function() {
     return $tweet;
   };
 
+  // Function to load tweets from server
   const loadTweets = function() {
     $.ajax({
       url: '/tweets',
@@ -54,23 +57,32 @@ $(document).ready(function() {
     });
   };
 
+  // call loadTweets to load tweets on page
   loadTweets();
 
   $('form').on('submit', function(event) {
     event.preventDefault();
 
+     // Get the Tweet Content
+     const tweetText = $('#tweet-text').val().trim(); // Get value and trim whitespace
+
+     // Validation Check
+     if (tweetText === '') {
+       // If tweet is empty - alert
+       alert("Tweet cannot be empty!");
+       return; // Stop further execution // do not submit the form
+     }
+ 
+     if (tweetText.length > 140) {
+       // If tweet exceeds 140 characters - alert
+       alert("Tweet exceeds the 140 character limit!");
+       return; // Stop further execution // do not submit the form
+     }
+    
+     // serializing form data
     const formData = $(this).serialize();
 
-    const tweetText = $('#tweet-text').val().trim();
-    if (tweetText === '') {
-      alert("Tweet cannot be empty!");
-      return;
-    }
-    if (tweetText.length > 140) {
-      alert("Tweet exceeds the 140 character limit!");
-      return;
-    }
-
+    // Send AJAX POST request
     $.ajax({
       type: 'POST',
       url: '/tweets',
