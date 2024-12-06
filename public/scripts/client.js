@@ -94,6 +94,7 @@ $(document).ready(function() {
       },
       error: function(error) {
         console.error("Error submitting tweet:", error);
+        $('.tweets-container').before('<p class="error-message">Tweet submission failed. Please try again.</p>');
       }
     });
   });

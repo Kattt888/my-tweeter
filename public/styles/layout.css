@@ -29,6 +29,68 @@ main.container {
   padding-top: 20px;
 }
 
+.tweets-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  min-height: 300px;
+}
+
+/* Tweet styling */
+.tweet {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.tweet:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  background-color: yellow;
+}
+
+.tweet header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.tweet .tweet-text {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.tweet footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  font-size: 14px;
+  color: #999;
+}
+
+.icons i {
+  color: gray;
+  font-size: 16px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.icons i:hover {
+  color: yellow;
+}
+
 /* Header styling */
 header {
   background-color: #ebe9de;

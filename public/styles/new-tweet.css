@@ -46,6 +46,14 @@ section.new-tweet button:hover {
   background-color: #1da1f2;
 }
 
+.error-message {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 section.new-tweet .counter {
   color: #333;
   display: flex;

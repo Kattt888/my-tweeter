@@ -1,22 +1,24 @@
 /* Container for all tweets */
+
 .tweets-container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  padding: 20px;
   margin-top: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  min-height: 300px;
 }
 
 .tweet {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  display: block;
   padding: 15px;
   margin-bottom: 20px;
-  background-color: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-}
+  background-color: #fafafa;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
 
 .new-tweet footer {
   display: flex;
@@ -32,7 +34,8 @@
 }
 
 .tweet:hover {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9; 
 }
 
 .tweet header {
