@@ -5,21 +5,17 @@
  */
 
 $(document).ready(function() {
-  
-  // Function to render tweets
   const renderTweets = function(tweets) {
-    $('#tweets-container').empty();
-
-  
+    $('#tweets-container').empty(); // Clear existing tweets
     tweets.forEach(tweet => {
-      const $tweetElement = createTweetElement(tweet);
-      $('#tweets-container').prepend($tweetElement);
+      const $tweet = createTweetElement(tweet);
+      $('#tweets-container').prepend($tweet); // Prepend tweets
     });
   };
 
-  // Function to create a tweet element
   const createTweetElement = function(tweet) {
-    const $tweet = $(`
+    const safeText = $('<div>').text(tweet.content.text).html(); // Escape for safety
+    return $(`
       <article class="tweet">
         <header>
           <div class="user-info">
@@ -28,7 +24,7 @@ $(document).ready(function() {
             <span class="handle">${tweet.user.handle}</span>
           </div>
         </header>
-        <p class="tweet-text">${tweet.content.text}</p>
+        <p class="tweet-text">${safeText}</p>
         <footer>
           <time>${timeago.format(tweet.created_at)}</time>
           <div class="icons">
@@ -39,17 +35,17 @@ $(document).ready(function() {
         </footer>
       </article>
     `);
-    return $tweet;
   };
 
-  // Function to load tweets from server
   const loadTweets = function() {
+    console.log("Fetching tweets from server...");
     $.ajax({
       url: '/tweets',
       method: 'GET',
       dataType: 'json',
-      success: function(response) {
-        renderTweets(response);
+      success: function(tweets) {
+        console.log("Fetched tweets:", tweets);
+        renderTweets(tweets);
       },
       error: function(err) {
         console.error('Error fetching tweets:', err);
@@ -57,45 +53,38 @@ $(document).ready(function() {
     });
   };
 
-  // call loadTweets to load tweets on page
-  loadTweets();
-
   $('form').on('submit', function(event) {
-    event.preventDefault();
+    event.preventDefault(); // Prevent default form submission
 
-     // Get the Tweet Content
-     const tweetText = $('#tweet-text').val().trim(); // Get value and trim whitespace
+    const tweetText = $('#tweet-text').val().trim(); // Get value
 
-     // Validation Check
-     if (tweetText === '') {
-       // If tweet is empty - alert
-       alert("Tweet cannot be empty!");
-       return; // Stop further execution // do not submit the form
-     }
- 
-     if (tweetText.length > 140) {
-       // If tweet exceeds 140 characters - alert
-       alert("Tweet exceeds the 140 character limit!");
-       return; // Stop further execution // do not submit the form
-     }
-    
-     // serializing form data
-    const formData = $(this).serialize();
+    if (!tweetText) {
+      alert('Tweet cannot be empty!');
+      return;
+    }
+    if (tweetText.length > 140) {
+      alert('Tweet exceeds 140 characters!');
+      return;
+    }
 
-    // Send AJAX POST request
+    const formData = $(this).serialize(); // Serialize form data
+
     $.ajax({
-      type: 'POST',
       url: '/tweets',
+      method: 'POST',
       data: formData,
       success: function() {
-        $('#tweet-text').val('');
-        $('.counter').text(140);
-        loadTweets();
+        $('#tweet-text').val(''); // Clear form
+        $('.counter').text(140); // Reset counter
+        loadTweets(); // Fetch new tweets
       },
-      error: function(error) {
-        console.error("Error submitting tweet:", error);
-        $('.tweets-container').before('<p class="error-message">Tweet submission failed. Please try again.</p>');
+      error: function(err) {
+        const $errorMessage = $('<div>').addClass('error-message').text('Failed to submit tweet. Please try again.');
+        $('form').prepend($errorMessage);
+        console.error('Error submitting tweet:', err);
       }
     });
   });
+
+  loadTweets(); // Initial load
 });

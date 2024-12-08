@@ -27,14 +27,16 @@ nav span {
 .new-tweet-toggle {
   display: flex;
   align-items: center;
-  cursor: pointer; 
+  cursor: pointer;
+}
 
 .new-tweet-toggle span {
   font-family: 'Bungee', sans-serif;
   font-size: 18px;
-  margin-right: 10px; 
+  margin-right: 10px;
+}
 
-  .new-tweet-toggle i {
+.new-tweet-toggle i {
   font-size: 24px;
   color: #FFFFFF;
 }
@@ -42,3 +44,4 @@ nav span {
 /* Hover effect for new tweet toggle */
 .new-tweet-toggle:hover {
   opacity: 0.9;
+}

@@ -1,5 +1,4 @@
 /* Container for all tweets */
-
 .tweets-container {
   display: flex;
   flex-direction: column;
@@ -10,6 +9,7 @@
   min-height: 300px;
 }
 
+/* Individual Tweet Styling */
 .tweet {
   display: block;
   padding: 15px;
@@ -18,24 +18,12 @@
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  }
-
-.new-tweet footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  position: relative;
-}
-
-.counter {
-  position: absolute;
-  right: 0;
-  top: 0;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tweet:hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-  background-color: #f9f9f9; 
+  background-color: #f9f9f9;
 }
 
 .tweet header {

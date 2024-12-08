@@ -37,7 +37,12 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html")); // Serving the main HTML file
 });
 
+// Handle undefined routes
+app.use((req, res) => {
+  res.status(404).send("Page not found");
+});
 
+//Start server
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
