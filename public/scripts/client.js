@@ -55,20 +55,28 @@ $(document).ready(function() {
 
   $('form').on('submit', function(event) {
     event.preventDefault(); // Prevent default form submission
+    
+    //hide error message
+    $('.error-message').slideUp();
 
     const tweetText = $('#tweet-text').val().trim(); // Get value
 
     if (!tweetText) {
-      alert('Tweet cannot be empty!');
-      return;
-    }
-    if (tweetText.length > 140) {
-      alert('Tweet exceeds 140 characters!');
-      return;
+      //error pops up if tweet is empty
+      $('.error-message').text('Tweet cannot be empty!').slideDown();
+    return;
     }
 
+    if (tweetText.length > 140) {
+      //error pops up if tweet exceeds 140 characters
+      $('.error-message').text('Tweet exceeds 140 characters!').slideDown();
+    return;
+    }
+
+    //serialize form data
     const formData = $(this).serialize(); // Serialize form data
 
+    //sending AJAX post request
     $.ajax({
       url: '/tweets',
       method: 'POST',
@@ -79,9 +87,8 @@ $(document).ready(function() {
         loadTweets(); // Fetch new tweets
       },
       error: function(err) {
-        const $errorMessage = $('<div>').addClass('error-message').text('Failed to submit tweet. Please try again.');
-        $('form').prepend($errorMessage);
         console.error('Error submitting tweet:', err);
+      $('.error-message').text('An error occurred while submitting your tweet.').slideDown();
       }
     });
   });

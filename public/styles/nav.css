@@ -26,19 +26,33 @@ nav span {
 /* Write a new tweet text and icon section */
 .new-tweet-toggle {
   display: flex;
+  flex-direction: column;
   align-items: center;
   cursor: pointer;
+  color: #faf8f8;
 }
 
 .new-tweet-toggle span {
   font-family: 'Bungee', sans-serif;
   font-size: 18px;
-  margin-right: 10px;
+  margin-bottom: 5px;
 }
 
 .new-tweet-toggle i {
   font-size: 24px;
-  color: #FFFFFF;
+  color: #FF0000;
+  display: inline-block;
+  position: relative;
+  animation: bounce 1.5s infinite; /* adding animation of icon */
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0); /* Starting and ending position */
+  }
+  50% {
+    transform: translateY(5px); /* Moves down slightly */
+  }
 }
 
 /* Hover effect for new tweet toggle */
