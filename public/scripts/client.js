@@ -5,6 +5,19 @@
  */
 
 $(document).ready(function() {
+  // Function to show the error message
+  const showError = function(message) {
+    const $errorMessage = $('.error-message');
+    $errorMessage.text(message); // Set the error text
+    $errorMessage.slideDown().addClass('show'); // Show the error message with animation
+  };
+
+  // Function to hide the error message
+  const hideError = function() {
+    const $errorMessage = $('.error-message');
+    $errorMessage.slideUp().removeClass('show'); // Hide the error message with animation
+  };
+
   const renderTweets = function(tweets) {
     $('#tweets-container').empty(); // Clear existing tweets
     tweets.forEach(tweet => {
@@ -55,40 +68,40 @@ $(document).ready(function() {
 
   $('form').on('submit', function(event) {
     event.preventDefault(); // Prevent default form submission
-    
-    //hide error message
-    $('.error-message').slideUp();
 
-    const tweetText = $('#tweet-text').val().trim(); // Get value
+    // Hide any existing error message before validating
+    hideError();
+
+    const tweetText = $('#tweet-text').val().trim(); // Get the input value
 
     if (!tweetText) {
-      //error pops up if tweet is empty
-      $('.error-message').text('Tweet cannot be empty!').slideDown();
-    return;
+      // Show error if the tweet is empty
+      showError('Tweet cannot be empty!');
+      return;
     }
 
     if (tweetText.length > 140) {
-      //error pops up if tweet exceeds 140 characters
-      $('.error-message').text('Tweet exceeds 140 characters!').slideDown();
-    return;
+      // Show error if the tweet exceeds 140 characters
+      showError('Tweet exceeds the 140-character limit!');
+      return;
     }
 
-    //serialize form data
-    const formData = $(this).serialize(); // Serialize form data
+    // Serialize form data
+    const formData = $(this).serialize();
 
-    //sending AJAX post request
+    // Send AJAX POST request
     $.ajax({
       url: '/tweets',
       method: 'POST',
       data: formData,
       success: function() {
-        $('#tweet-text').val(''); // Clear form
-        $('.counter').text(140); // Reset counter
-        loadTweets(); // Fetch new tweets
+        $('#tweet-text').val(''); // Clear the textarea
+        $('.counter').text(140); // Reset the counter
+        loadTweets(); // Reload tweets
       },
       error: function(err) {
         console.error('Error submitting tweet:', err);
-      $('.error-message').text('An error occurred while submitting your tweet.').slideDown();
+        showError('An error occurred while submitting your tweet.');
       }
     });
   });
