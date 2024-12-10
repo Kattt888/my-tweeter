@@ -95,20 +95,20 @@ main.container {
 
 /* Header styling */
 header {
-  background-color: #ebe9de;
+  background-color: #e2a52c;
   text-align: center;
   padding: 30px 0;
 }
 
 header img {
-  max-width: 150px;
+  max-width: 200px;
   height: auto;
-  border-radius: 50%;
+  border-radius: 40%;
 }
 
 header h2 {
-  font-size: 1.5rem;
-  color: #555;
+  font-size: 1.8rem;
+  color: #f4eeee;
   margin: 10px 0 0 0;
 }
 
