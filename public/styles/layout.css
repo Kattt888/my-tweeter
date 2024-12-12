@@ -56,17 +56,18 @@ main.container {
 
 .tweet:hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-  background-color: #f9f9f9; /* Subtle color change on hover */
+  background-color: #f9f9f9; /* hover color change */
 }
 
 .tweet header {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  background-color: #fff;
 }
 
 .tweet .tweet-text {
-  font-size: 1rem; /* Relative font size for consistency */
+  font-size: 1rem; 
   color: #333;
   margin-bottom: 15px;
 }
@@ -95,10 +96,10 @@ main.container {
 
 /* Header styling */
 header {
-  background-color: #e2a52c;
+  background-color: #fada64;
   text-align: center;
   padding: 30px 0;
-}
+}S
 
 header img {
   max-width: 200px;
@@ -141,7 +142,7 @@ nav .new-tweet h2 {
 
 nav .new-tweet i {
   font-size: 24px;
-  color: inherit;
+  color: #FFFFFF;
 }
 
 /* Error Message Styling */

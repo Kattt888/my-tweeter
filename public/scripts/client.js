@@ -5,6 +5,7 @@
  */
 
 $(document).ready(function() {
+  console.log("writing")
   // Function to show the error message
   const showError = function(message) {
     const $errorMessage = $('.error-message');
@@ -19,10 +20,10 @@ $(document).ready(function() {
   };
 
   const renderTweets = function(tweets) {
-    $('#tweets-container').empty(); // Clear existing tweets
+    $('.tweets-container').empty(); // Clear existing tweets
     tweets.forEach(tweet => {
       const $tweet = createTweetElement(tweet);
-      $('#tweets-container').prepend($tweet); // Prepend tweets
+      $('.tweets-container').prepend($tweet); // Prepend tweets
     });
   };
 
@@ -31,15 +32,13 @@ $(document).ready(function() {
     return $(`
       <article class="tweet">
         <header>
-          <div class="user-info">
-            <img src="${tweet.user.avatars}" alt="${tweet.user.name}'s avatar">
-            <span class="name">${tweet.user.name}</span>
-            <span class="handle">${tweet.user.handle}</span>
-          </div>
+          <img src="${tweet.user.avatars}" alt="${tweet.user.name}'s avatar">
+          <span class="name">${tweet.user.name}</span>
+          <span class="handle">${tweet.user.handle}</span>
         </header>
-        <p class="tweet-text">${safeText}</p>
+        <p>${safeText}</p>
         <footer>
-          <time>${timeago.format(tweet.created_at)}</time>
+          <span>${timeago.format(tweet.created_at)}</span>
           <div class="icons">
             <i class="fa fa-flag"></i>
             <i class="fa fa-retweet"></i>

@@ -31,7 +31,7 @@ section.new-tweet textarea {
 
 section.new-tweet textarea:focus {
   border-bottom: 2px solid #4056A1;
-  background-color: #f9f9f9; /* Subtle highlight for focus */
+  background-color: #f9f9f9;
   transition: background-color 0.2s ease;
 }
 
@@ -43,12 +43,12 @@ section.new-tweet div {
 
 section.new-tweet label {
   position: absolute;
-  top: 10%; /* Center on the line */
-  left: 23px; /* Adjust for alignment */
+  top: 10%; 
+  left: 23px; 
   transform: translateY(-50%);
   font-size: 1.25rem;
   font-weight: bold;
-  color: #6a6969; /* Lighter color for placeholder effect */
+  color: #6a6969; 
   pointer-events: none;
   transition: all 0.2s ease;
   font-family: 'Source Sans 3', sans-serif;
