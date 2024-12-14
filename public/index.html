@@ -48,71 +48,74 @@
     </div>
   </nav>
 
-  <header>
-    <div>
-      <img src="/images/profile-hex.png" alt="Profile Picture">
-    </div>
-    <br>
-    <div>
-      <h2><strong>Katrina</strong> <span style="font-weight: lighter;">Byrd</span></h2>
-    </div>
-  </header>
-
-  <!-- Main container -->
+  <!-- Main Container -->
   <main class="container">
-    <!-- New Tweet Form -->
-    <section class="new-tweet">
-      <form action="/tweets" method="POST">
-        <div class="error-message" style="display: none;"></div>
-        <label for="tweet-text" class="tweet-label">What are you humming about?</label>
-        <textarea name="text" id="tweet-text" placeholder=" "></textarea>
-        <footer>
-          <div class="tweet-container">
-            <button type="submit" class="tweet-button">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </footer>
-      </form>
+    <!-- Left Column: Profile Section -->
+    <header>
+      <div>
+        <img src="/images/profile-hex.png" alt="Profile Picture">
+      </div>
+      <br>
+      <div>
+        <h2><strong>Katrina</strong> <span style="font-weight: lighter;">Byrd</span></h2>
+      </div>
+    </header>
+    
+    <!-- Right Column: Tweets Section -->
+    <section class="tweets-section">
+      <!-- New Tweet Form -->
+      <section class="new-tweet">
+        <form action="/tweets" method="POST">
+          <div class="error-message" style="display: none;"></div>
+          <label for="tweet-text" class="tweet-label">What are you humming about?</label>
+          <textarea name="text" id="tweet-text" placeholder=" "></textarea>
+          <footer>
+            <div class="tweet-container">
+              <button type="submit" class="tweet-button">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </footer>
+        </form>
+      </section>
+
+      <!-- Tweets Container -->
+      <section class="tweets-container">
+        <!-- Dummy Tweets for Development -->
+        <article class="tweet">
+          <header>
+            <img src="https://i.imgur.com/73hZDYK.png" alt="Newton's avatar">
+            <span class="name">Newton</span>
+            <span class="handle">@SirIsaac</span>
+          </header>
+          <p>If I have seen further it is by standing on the shoulders of giants.</p>
+          <footer>
+            <span>10 days ago</span>
+            <div class="icons">
+              <i class="fa fa-flag"></i>
+              <i class="fa fa-retweet"></i>
+              <i class="fa fa-heart"></i>
+            </div>
+          </footer>
+        </article>
+
+        <article class="tweet">
+          <header>
+            <img src="https://i.imgur.com/nlhLi3I.png" alt="Descartes' avatar">
+            <span class="name">Descartes</span>
+            <span class="handle">@rd</span>
+          </header>
+          <p>Je pense, donc je suis.</p>
+          <footer>
+            <span>5 days ago</span>
+            <div class="icons">
+              <i class="fa fa-flag"></i>
+              <i class="fa fa-retweet"></i>
+              <i class="fa fa-heart"></i>
+            </div>
+          </footer>
+        </article>
+      </section>
     </section>
-
-
-     <!-- Tweets container -->
-  <section class="tweets-container">
-    <!-- Dummy Tweets for development -->
-    <article class="tweet">
-      <header>
-        <img src="https://i.imgur.com/73hZDYK.png" alt="Newton's avatar">
-        <span class="name">Newton</span>
-        <span class="handle">@SirIsaac</span>
-      </header>
-      <p>If I have seen further it is by standing on the shoulders of giants.</p>
-      <footer>
-        <span>10 days ago</span>
-        <div class="icons">
-          <i class="fa fa-flag"></i>
-          <i class="fa fa-retweet"></i>
-          <i class="fa fa-heart"></i>
-        </div>
-      </footer>
-    </article>
-
-    <article class="tweet">
-      <header>
-        <img src="https://i.imgur.com/nlhLi3I.png" alt="Descartes' avatar">
-        <span class="name">Descartes</span>
-        <span class="handle">@rd</span>
-      </header>
-      <p>Je pense, donc je suis.</p>
-      <footer>
-        <span>5 days ago</span>
-        <div class="icons">
-          <i class="fa fa-flag"></i>
-          <i class="fa fa-retweet"></i>
-          <i class="fa fa-heart"></i>
-        </div>
-      </footer>
-    </article>
-  </section>
-</main>
+  </main>
 </body>
 </html>
