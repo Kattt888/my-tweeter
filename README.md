@@ -36,4 +36,4 @@ Welcome to Tweeter, a dynamic and responsive single-page Twitter clone designed 
 ![Tweeter Home Page](https://github.com/Kattt888/my-tweeter/blob/master/public/docs/tweeter-home.png?raw=true)
 
 ### Mobile View
-![Tweeter Mobile View](
+![Tweeter Mobile View](https://github.com/Kattt888/my-tweeter/blob/master/public/docs/tweeter-mobile.png?raw=true)
