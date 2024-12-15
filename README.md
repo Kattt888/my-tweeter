@@ -29,3 +29,11 @@ Welcome to Tweeter, a dynamic and responsive single-page Twitter clone designed 
 - Express
 - Node 5.10.x or above
 - Timeago
+
+## Screenshots
+
+### Home Page
+![Tweeter Home Page](https://github.com/Kattt888/my-tweeter/blob/master/public/docs/tweeter-home.png?raw=true)
+
+### Mobile View
+![Tweeter Mobile View](
