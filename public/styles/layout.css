@@ -28,7 +28,7 @@ main.container {
   justify-content: space-between;
   gap: 20px; /* Space between columns */
   margin: 0 auto;
-  max-width: 1200px; /* Set a max width for the layout */
+  max-width: 1200px;
   padding: 0 1.5rem;
 }
 
@@ -223,9 +223,9 @@ nav .new-tweet i {
 
   .profile-section {
     flex: 0 0 30%; /* Fixed width for profile section */
-    height: 100%; /* Adjust height dynamically */
+    height: 100%;
     width: 30%;
-    margin-bottom: 0; /* Remove bottom margin for desktop */
+    margin-bottom: 0;
   }
 
   .tweets-section {
@@ -240,6 +240,6 @@ nav .new-tweet i {
   }
 
   .profile-section {
-    height: 300px; /* Keeps the yellow rectangle for mobile */
+    height: 300px;
   }
 }
