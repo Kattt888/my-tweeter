@@ -54,7 +54,7 @@ nav span {
     transform: translateY(0); /* Starting and ending position */
   }
   50% {
-    transform: translateY(5px); /* Moves down slightly */
+    transform: translateY(5px); /* Move down slightly for animated effect! */
   }
 }
 

@@ -24,11 +24,11 @@
 }
 
 .tweet header {
-  display: grid; /* Use grid for consistent alignment */
-    grid-template-columns: auto auto 1fr; /* Avatar | Name/Text | Handle */
-    align-items: center; /* Center items vertically */
-    column-gap: 10px; /* Space between elements */
-    padding: 5px 10px; /* Adjust padding for uniform spacing */
+  display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    column-gap: 10px;
+    padding: 5px 10px;
 }
 
 .tweet header img {

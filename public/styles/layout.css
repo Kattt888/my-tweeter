@@ -4,9 +4,10 @@
  * Do not modify these two selectors, please
  */
  /* Base */
-html {
+ html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -18,74 +19,123 @@ body {
   font-family: 'Source Sans 3', sans-serif;
   margin: 0;
   padding: 0;
-  font-size: 16px; /* Base font size */
+  font-size: 16px;
 }
 
 /* Main Container */
 main.container {
-  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Space between columns */
   margin: 0 auto;
-  padding-top: 50px;
-  padding-right: 0%;
+  max-width: 1200px; /* Set a max width for the layout */
+  padding: 0 1.5rem;
+}
+
+/* Profile Section Styling */
+.profile-section {
+  flex: 0 0 30%;
+  background-color: #f7b321;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  border-radius: 10px;
+  box-shadow: none;
+  height: auto;
+}
+
+/* Profile Header Styling */
+.profile-header img {
+  max-width: 150px;
+  height: auto;
+  border-radius: 50%; /* Circular profile picture */
+  margin-bottom: 10px;
+}
+
+.profile-header h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  color: #fbf9f9;
+}
+
+/* Tweets Section Styling */
+.tweets-section {
+  flex: 1; /* Take up the remaining space */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-right: 1.5rem;
+}
+
+/* New Tweet Form Styling */
+.new-tweet {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-shadow: none;
+  margin-bottom: 20px;
+}
+
+.new-tweet textarea {
+  width: 100%;
+  height: 80px;
+  resize: none;
+  border-radius: 5px;
 }
 
 /* Tweets Container */
 .tweets-container {
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  margin-top: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  min-height: 300px;
-  overflow-y: auto; /* Enable scrolling if content overflows */
+  gap: 20px; /* Space between tweets */
 }
 
-/* Tweet Styling */
-.tweets-container {
-  display: flex;
-  flex-direction: column;
+/* Individual Tweet Styling */
+.tweet {
+  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 15px;
-  margin-bottom: 20px;
-  background-color: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-}
-
-.tweet .handle {
-  font-size: 0.9rem;
-  color: #1da1f2; /* Blue for handle */
-  font-weight: bold;
-}
-
-.tweet:hover {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-  background-color: #f9f9f9; /* Hover color change */
 }
 
 .tweet header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
-  background-color: #fff;
 }
 
-.tweet .tweet-text {
-  font-size: 1rem; 
+.tweet img {
+  max-width: 50px;
+  height: auto;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.tweet .name {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.tweet .handle {
+  color: #1da1f2;
+  text-align: right;
+}
+
+.tweet p {
+  font-size: 1rem;
   color: #333;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .tweet footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #eee;
-  padding-top: 10px;
-  font-size: 14px;
+  font-size: 0.8rem;
   color: #999;
 }
 
@@ -102,38 +152,6 @@ main.container {
   color: yellow;
 }
 
-/* Header Styling */
-header {
-  background-color: #e1971acf;
-  text-align: center;
-  padding: 10%;
-  height: 20%;
-}
-
-.profile-section {
-  height: 200px; /* Adjust the height to make it more rectangular */
-  width: 100%; /* Full width of the column */
-  background-color: #fada64; /* Ensure the yellow background remains */
-  display: flex; /* Flex to align items inside */
-  flex-direction: column; /* Keep content stacked */
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
-  padding: 20px; /* Add padding for spacing */
-  border-radius: 10px; /* Optional: Add rounded corners if needed */
-}
-
-.profile-header img {
-  max-width: 200px;
-  height: auto;
-  border-radius: 40%;
-}
-
-.profile-header h2 {
-  font-size: 1.8rem;
-  color: #f4eeee;
-  margin: 10px 0 0 0;
-}
-
 /* Nav Bar Styling */
 nav {
   display: flex;
@@ -142,7 +160,8 @@ nav {
   height: 100px;
   background-color: #4056A1;
   color: #FFFFFF;
-  padding: 0 1.5em;
+  padding: 0 1.5rem;
+  margin-bottom: 20px;
 }
 
 nav span {
@@ -195,59 +214,32 @@ nav .new-tweet i {
   }
 }
 
-/* Desktop Layout Styles */
-@media screen and (min-width: 1024px) {
-  .container {
-    display: flex;
-    gap: 10px;
-    justify-content: space-between;
-    height: 30%;
+/* Responsive Design for Desktop: 768px and above */
+@media screen and (min-width: 768px) {
+  main.container {
+    flex-direction: row; /* Two columns for desktop view */
+    gap: 100px;
   }
 
-  /* Left column: Profile section */
   .profile-section {
-   height: 50px; /* Adjust this value as needed */
-   padding: 100px; /* Reduce padding to make it smaller */
+    flex: 0 0 30%; /* Fixed width for profile section */
+    height: 100%; /* Adjust height dynamically */
+    width: 30%;
+    margin-bottom: 0; /* Remove bottom margin for desktop */
   }
 
-  /* Right column: Tweets section */
   .tweets-section {
-    flex: 0 0 50%; /* Take remaining space */
-    max-width: 50%;
-    padding: 10px;
-    overflow-y: auto;
-  }
-
-  /* Adjust New Tweet Section */
-  .new-tweet {
-    margin-bottom: 20px;
-    background-color: #333;
-    padding: 10px;
-    border-radius: 10px;
+    flex: 1; /* Take remaining space */
   }
 }
 
-/* Tablet Layout Styles */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .container {
-    flex-direction: column;
-    padding: 20px;
-    padding-top: 10px;
+/* Responsive Design for Tablet: Below 768px */
+@media screen and (max-width: 768px) {
+  main.container {
+    flex-direction: column; /* Stack vertically */
   }
 
   .profile-section {
-    width: 100%;
-    align-items: center;
-    padding: 5%;
-  }
-
-  .tweet .handle {
-    align-items: center;
-    margin-bottom: 10px;
-  }
-
-  .tweets-section {
-    column-gap: normal;
-    width: 100%;
+    height: 300px; /* Keeps the yellow rectangle for mobile */
   }
 }
