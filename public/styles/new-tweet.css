@@ -93,7 +93,7 @@ section.new-tweet button:hover {
   transform: translateY(0);
 }
 
-section.new-tweet .counter {
+.counter {
   color: #333;
   display: inline-block;
   font-family: 'Bungee', sans-serif;
